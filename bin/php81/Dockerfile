@@ -68,6 +68,11 @@ RUN cd /usr/local/src && \
 
 # Other PHP8 Extensions
 
+RUN apt-get update && \
+    apt-get install -y libxml* && \
+    docker-php-ext-install xsl && \
+    rm -rf /var/lib/apt/lists/*
+
 RUN docker-php-ext-install pdo_mysql && \
     docker-php-ext-install pdo_sqlite && \
     docker-php-ext-install mysqli && \
@@ -77,6 +82,10 @@ RUN docker-php-ext-install pdo_mysql && \
     docker-php-ext-install mbstring && \
     docker-php-ext-install gettext && \
     docker-php-ext-install calendar && \
+    docker-php-ext-install soap && \
+    docker-php-ext-install simplexml && \
+    docker-php-ext-install bcmath && \
+    docker-php-ext-install sockets && \
     docker-php-ext-install exif
 
 
